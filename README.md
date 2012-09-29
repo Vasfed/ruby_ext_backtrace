@@ -74,8 +74,8 @@ this outputs:
  {:file=>"./test.rb", :line=>24, :method=>"<main>", :argc=>0}]
 ```
 
-Note that fetching parameters for CFUNCs with variable parameters (argc<0) is not supported.
-Also instead of `"<ruby>"` `:file` can be `nil`, so does `:method` for unknown methods.
+Note that fetching parameters for CFUNCs with variable parameters (argc&lt;0) is not supported.
+Also instead of "&lt;ruby&gt;" `:file` can be `nil`, so does `:method` for unknown methods.
 
 ## Contributing
 
