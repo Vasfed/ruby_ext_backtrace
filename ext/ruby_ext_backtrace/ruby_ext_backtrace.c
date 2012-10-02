@@ -10,6 +10,13 @@
 #error Need RubyVM, use another ruby
 #endif
 
+#ifdef HAVE_RUBY_CURRENT_THREAD
+extern VALUE ruby_engine_name;
+#else
+#define ruby_engine_name Qnil
+#define ruby_current_thread ((rb_thread_t *)RTYPEDDATA_DATA(rb_thread_current()))
+#endif
+
 typedef int (rb_backtrace_iter_ext_func)(void *arg, VALUE file, int line, VALUE method_name, int argc, VALUE* argv);
 
 static int
@@ -49,7 +56,7 @@ vm_backtrace_each_ext(rb_thread_t *th, int lev, void (*init)(void *), rb_backtra
     } else
       if (RUBYVM_CFUNC_FRAME_P(cfp)) {
         ID id = cfp->me->def? cfp->me->def->original_id : cfp->me->called_id;
-        extern VALUE ruby_engine_name;
+
         if (NIL_P(file)) file = ruby_engine_name;
 
         if (id != ID_ALLOCATOR){
