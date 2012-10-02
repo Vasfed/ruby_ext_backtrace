@@ -10,7 +10,7 @@ Gem::Specification.new do |gem|
   gem.email         = ["vasilyfedoseyev@gmail.com"]
   gem.description   = %q{Extended backtrace for ruby}
   gem.summary       = %q{have you ever wanted to see method parameters in backtrace?}
-  gem.homepage      = ""
+  gem.homepage      = "https://github.com/Vasfed/ruby_ext_backtrace"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
